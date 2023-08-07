@@ -6,7 +6,20 @@ Data types are the building blocks for constructing data structures, as the choi
 ------------------------------------------------------------------------------------------------
 DATA TYPE
 
+https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html
+
 Data type is a classification of data based on the type of value it holds. It defines the constraints on the data and the set of operations that can be applied to them.
+
+PRIMITIVES
+In JavaScript, a primitive (primitive value, primitive data type) is data that is not an object and has no methods or properties. 
+
+Most of the time, a primitive value is represented directly at the lowest level of the language implementation.
+
+All primitives are immutable; that is, they cannot be altered. It is important not to confuse a primitive itself with a variable assigned a primitive value. The variable may be reassigned to a new value, but the existing value can not be changed in the ways that objects, arrays, and functions can be altered. The language does not offer utilities to mutate primitive values.
+
+Primitives have no methods but still behave as if they do. When properties are accessed on primitives, JavaScript auto-boxes the value into a wrapper object and accesses the property on that object instead
+
+There are 7 primitive data types:
 
 STRING TYPE
 String type represents textual data, each element in the string occupies a position in the string. The first element is at index 0, the next at index 1, and so on.JavaScript strings are immutable. This means that once a string is created, it is not possible to modify it. String methods create new strings based on the content of the current string.
@@ -21,11 +34,13 @@ BIGINT TYPE
 BigInt type is a numeric primitive in JavaScript that can represent integers with arbitrary magnitude. With BigInts, you can safely store and operate on large integers even beyond the safe integer limit (Number.MAX_SAFE_INTEGER) for Numbers.
 
 NULL TYPE
-Null indicates the absence of an object
+Null indicates the absence of an object - The Null type has exactly one value, called null.
 
 UNDEFINED TYPE
-Undefined indicates the absence of a value. JS language usually defaults to undefined when something is devoid of a value (return statement, accessing a nonexistent object property, variable declaration without initialization and others).
+Undefined indicates the absence of a value. JS language usually defaults to undefined when something is devoid of a value (return statement, accessing a nonexistent object property, variable declaration without initialization and others). - The Undefined type has exactly one value, called undefined. Any variable that has not been assigned a value has the value undefined.
 
+SYMBOL
+JavaScript Symbols are a new type of primitive data type introduced in the ES6 version of the language. They are used to represent unique values that can be used as identifiers or keys in objects. They are also used to create private properties and methods in classes.
 -----------------------------------------------------------------------------------------------------
 DATA STRUCTURE
 
@@ -36,11 +51,30 @@ Array	          Ordered sequence of values
 Object	        Unordered collection of key/value pairs. And more
 Date	          String, Number, Boolean, null etc
 
+----------------------------------------------------------------------------------------------------------
 ARRAY
 Array object, as with arrays in other programming languages, enables storing a collection of multiple items under a single variable name, and has members for performing common array operations.
 
+In JavaScript, arrays aren't primitives but are instead Array objects with the following core characteristics:
+
+ - JavaScript arrays are resizable and can contain a mix of different data types. (When those characteristics are undesirable, use typed arrays instead.)
+ - JavaScript arrays are not associative arrays and so, array elements cannot be accessed using arbitrary strings as indexes, but must be accessed using nonnegative integers (or their respective string form) as indexes.
+ - JavaScript arrays are zero-indexed: the first element of an array is at index 0, the second is at index 1, and so on — and the last element is at the value of the array's length property minus 1.
+ - JavaScript array-copy operations create shallow copies. (All standard built-in copy operations with any JavaScript objects create shallow copies, rather than deep copies).
+
+ZERO BASED NUMBERING
+Zero-based numbering is a way of numbering in which the initial element of a sequence is assigned the index 0, rather than the index 1 as is typical in everyday non-mathematical or non-programming circumstances. 
+
+SHALLOW AND DEEP COPY
+A shallow copy of an object is a copy whose properties share the same references (point to the same underlying values) as those of the source object from which the copy was made. As a result, when you change either the source or the copy, you may also cause the other object to change too — and so, you may end up unintentionally causing changes to the source or copy that you don't expect. That behavior contrasts with the behavior of a deep copy, in which the source and copy are completely independent.
+
+-------------------------------------------------------------------------------------------------------------------
 DATE
-JavaScript Date objects represent a single moment in time. Date objects encapsulate an integral number that represents milliseconds since the midnight at the beginning of January 1, 1970, UTC (the epoch).
+JavaScript Date objects represent a single moment in time. Date objects encapsulate an integral number that represents milliseconds since the midnight at the beginning of January 1, 1970, UTC (the epoch). This timestamp is timezone-agnostic and uniquely defines an instant in history.
+
+R ange from April 20, 271821 BC to September 13, 275760 AD. Any attempt to represent a time outside this range results in the Date object holding a timestamp value of NaN, which is an "Invalid Date".
+
+
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#examples
 const today = new Date();
@@ -64,6 +98,9 @@ date.toLocaleString(); // 5/12/2020, 6:50:21 PM
 date.toLocaleDateString(); // 5/12/2020
 date.toLocaleTimeString(); // 6:50:21 PM
 
+
+
+------------------------------------------------------------------------------------------------------------
 OBJECT
 Objects (in JS) can be seen as a collection of properties. Object properties are equivalent to key-value pairs. Property keys are either strings or symbols. Property values can be values of any type, including other objects, which enables building complex data structures.
 
@@ -85,6 +122,7 @@ Objects (in JS) can be seen as a collection of properties. Object properties are
 }
 // https://www.json.org/json-en.html
 
+-----------------------------------------------------------------------------------------------------------------------
 MISC
 Variable is associated with a specific data type when it is declared. This association determines the memory allocation and the set of operations that can be performed on the variable.
 -------------------------------------------------------------------------------------------------------
