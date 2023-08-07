@@ -28,7 +28,9 @@ BOOLEAN TYPE
 Boolean represents a logical entity and is inhabited by two values: true and false. Boolean values are mostly used for conditional operations, including ternary operators, if...else, while, etc.
 
 NUMBER TYPE
-Number values represent floating-point numbers like 1.61803, 3.14159 or 1.
+Number values represent floating-point numbers like 1.61803, 3.14159 or 1.  - can only safely store integers in the range -(253 − 1) (Number.MIN_SAFE_INTEGER) to 253 − 1 (Number.MAX_SAFE_INTEGER)
+
+NaN ("Not a Number") is a special kind of number value that's typically encountered when the result of an arithmetic operation cannot be expressed as a number. It is also the only value in JavaScript that is not equal to itself.
 
 BIGINT TYPE
 BigInt type is a numeric primitive in JavaScript that can represent integers with arbitrary magnitude. With BigInts, you can safely store and operate on large integers even beyond the safe integer limit (Number.MAX_SAFE_INTEGER) for Numbers.
@@ -38,6 +40,8 @@ Null indicates the absence of an object - The Null type has exactly one value, c
 
 UNDEFINED TYPE
 Undefined indicates the absence of a value. JS language usually defaults to undefined when something is devoid of a value (return statement, accessing a nonexistent object property, variable declaration without initialization and others). - The Undefined type has exactly one value, called undefined. Any variable that has not been assigned a value has the value undefined.
+
+Conceptually, undefined indicates the absence of a value, while null indicates the absence of an object 
 
 SYMBOL
 JavaScript Symbols are a new type of primitive data type introduced in the ES6 version of the language. They are used to represent unique values that can be used as identifiers or keys in objects. They are also used to create private properties and methods in classes.
@@ -74,8 +78,6 @@ JavaScript Date objects represent a single moment in time. Date objects encapsul
 
 R ange from April 20, 271821 BC to September 13, 275760 AD. Any attempt to represent a time outside this range results in the Date object holding a timestamp value of NaN, which is an "Invalid Date".
 
-
-
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#examples
 const today = new Date();
 const birthday = new Date("December 17, 1995 03:24:00"); // DISCOURAGED: may not work in all runtimes
@@ -97,8 +99,6 @@ date.toUTCString(); // Tue, 12 May 2020 23:50:21 GMT
 date.toLocaleString(); // 5/12/2020, 6:50:21 PM
 date.toLocaleDateString(); // 5/12/2020
 date.toLocaleTimeString(); // 6:50:21 PM
-
-
 
 ------------------------------------------------------------------------------------------------------------
 OBJECT
