@@ -4,28 +4,23 @@ Data types deal with the classification and representation of individual data it
 
 Data types are the building blocks for constructing data structures, as the choice of data types used in a data structure influences its behavior and performance.
 
-CALLS
+DATA TYPE
+Data type is a classification of data based on the type of value it holds. It defines the constraints on the data and the set of operations that can be applied to them.
 
-HTTPS = REQUEST AND RESPONSE
-GENERALLY YOU CALL A FUNCTION  TO BE EXECUTED
+STRING TYPE
+String type represents textual data, each element in the string occupies a position in the string. The first element is at index 0, the next at index 1, and so on.JavaScript strings are immutable. This means that once a string is created, it is not possible to modify it. String methods create new strings based on the content of the current string.
 
+BOOLEAN TYPE
+Boolean represents a logical entity and is inhabited by two values: true and false. Boolean values are mostly used for conditional operations, including ternary operators, if...else, while, etc.
 
+NUMBER TYPE
+Number values represent floating-point numbers like 1.61803, 3.14159 or 1.
 
-VARIABLE IS A REFERENCE TO A BUCKET -  - Variables are Containers for Storing Data
+BIGINT TYPE
+BigInt type is a numeric primitive in JavaScript that can represent integers with arbitrary magnitude. With BigInts, you can safely store and operate on large integers even beyond the safe integer limit (Number.MAX_SAFE_INTEGER) for Numbers.
 
-JavaScript Variables can be declared in 4 ways:
+NULL TYPE
+Null indicates the absence of an object
 
-Automatically
-Using var
-Using let
-Using const
-
-const = constant (reference to a value)  - does not change
-var = variable
-Let = xxx - cannot be redeclared
-
-Difference Between var, let and const
-             Scope	    Redeclare	      Reassign	      Hoisted	     Binds this
-var	         No	        Yes	            Yes	            Yes	         Yes
-let	         Yes	      No	            Yes	            No	         No
-const	       Yes	      No	            No	            No	         No
+UNDEFINED TYPE
+Undefined indicates the absence of a value. JS language usually defaults to undefined when something is devoid of a value (return statement, accessing a nonexistent object property, variable declaration without initialization and others).
